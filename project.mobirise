@@ -43,8 +43,9 @@
     "uniqCompNum": 13,
     "versionPublish": "4.10.15",
     "screenshot": "screenshot.png",
-    "favicon": "",
-    "noImageResize": ""
+    "favicon": "@PROJECT_PATH@/assets/images/likelikelikeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee-128x134.png",
+    "noImageResize": "",
+    "canonical-url": ""
   },
   "pages": {
     "index.html": {
