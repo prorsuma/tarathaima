@@ -1,0 +1,410 @@
+{
+  "settings": {
+    "name": "Consulting",
+    "currentPage": "index.html",
+    "theme": {
+      "name": "resumeamp",
+      "title": "ResumeAMP",
+      "styling": {
+        "primaryColor": "#4ea2e3",
+        "secondaryColor": "#4addff",
+        "successColor": "#0dcd7b",
+        "infoColor": "#8282e7",
+        "warningColor": "#767676",
+        "dangerColor": "#a0a0a0",
+        "mainFont": "Didact Gothic",
+        "display1Font": "Montserrat",
+        "display1Size": 2.6,
+        "display2Font": "Montserrat",
+        "display2Size": 2.1,
+        "display5Font": "Montserrat",
+        "display5Size": 1.6,
+        "display7Font": "Montserrat",
+        "display7Size": 0.8,
+        "display4Font": "Montserrat",
+        "display4Size": 0.9,
+        "isRoundedButtons": false,
+        "isScrollToTopButton": true,
+        "arrowColor": "#4ea2e3"
+      },
+      "additionalSetColors": [
+        "#0dcd7b"
+      ]
+    },
+    "path": "@PROJECT_PATH@",
+    "versionFirst": "4.10.15",
+    "siteFonts": [
+      {
+        "css": "'Montserrat', sans-serif",
+        "name": "Montserrat",
+        "url": "https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+      }
+    ],
+    "uniqCompNum": 13,
+    "versionPublish": "4.10.15",
+    "screenshot": "screenshot.png",
+    "favicon": "",
+    "noImageResize": ""
+  },
+  "pages": {
+    "index.html": {
+      "settings": {
+        "main": true,
+        "title": "Home",
+        "meta_descr": "",
+        "header_custom": "",
+        "footer_custom": "",
+        "html_before": ""
+      },
+      "components": [
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 5px)",
+            "padding-bottom": "(@paddingBottom * 5px)",
+            "background-color": "@bgColor",
+            ".mbr-row": {
+              "padding": "60px",
+              "position": "relative",
+              "margin": "0",
+              "& when (@bg-type = 'color')": {
+                "background-color": "@bg-value"
+              },
+              "& when (@bg-type = 'image')": {
+                "background-image": "url(@bg-value)",
+                "background-position": "center",
+                "background-repeat": "no-repeat",
+                "background-size": "cover",
+                ".mbr-overlay": {
+                  "background": "@overlayColor",
+                  "opacity": "@overlayOpacity"
+                }
+              },
+              "height": "~\"@{heightBg}rem\""
+            },
+            ".mbr-title": {
+              "& when (@showUnderline)": {
+                "position": "relative",
+                "margin-bottom": "70px",
+                "&:after": {
+                  "position": "absolute",
+                  "left": "50%",
+                  "margin-left": "-1.5rem",
+                  "bottom": "-35px",
+                  "content": "\"\"",
+                  "width": "3rem",
+                  "height": "2px",
+                  "background-color": "@underlineColor",
+                  "transition": "width .3s"
+                }
+              },
+              "color": "#000000",
+              "text-align": "center"
+            },
+            ".relative": {
+              "position": "relative",
+              "max-width": "435px",
+              "margin": "auto"
+            },
+            ".mbr-section-btn": {
+              "margin": "0 auto"
+            },
+            ".mbr-section-subtitle": {
+              "padding": "0",
+              "margin-bottom": "40px"
+            },
+            "@media (max-width: 767px)": {
+              ".mbr-row": {
+                "padding": "1rem"
+              }
+            }
+          },
+          "_name": "headers4",
+          "_customHTML": "<section class=\"mbr-section headers4\" group=\"Headers\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"20\" step=\"1\" value=\"1\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"20\" step=\"1\" value=\"1\">\n\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Underline\" name=\"showUnderline\" condition=\"showTitle\" checked>\n        <input type=\"color\" title=\"Underline Color\" name=\"underlineColor\" value=\"#232323\" condition=\"showUnderline && showTitle\">\n        \n        <input type=\"checkbox\" title=\"Show Subtitle\" name=\"showSubtitle\">\n\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\" checked>\n\n\n        <fieldset type=\"background\" name=\"bg\">\n            <input type=\"image\" title=\"Container Bg Image\" value=\"@PROJECT_PATH@/assets/images/mre777-2000x1146.jpg\">\n            <input type=\"color\" title=\"Container Bg Color\" value=\"#efefef\" selected>\n        </fieldset>\n\n        <input type=\"range\" inline title=\"Height Background\" name=\"heightBg\" min=\"10\" max=\"100\" value=\"33\" step=\"1\">\n        \n        <input type=\"checkbox\" title=\"Overlay\" name=\"overlay\" checked condition=\"bg.type !== 'color'\">\n        <input type=\"color\" title=\"Overlay Color\" name=\"overlayColor\" value=\"#efefef\" condition=\"overlay && bg.type !== 'color'\">\n        <input type=\"range\" inline title=\"Opacity\" name=\"overlayOpacity\" min=\"0\" max=\"1\" step=\"0.1\" value=\"0.6\" condition=\"overlay && bg.type !== 'color'\">\n\n\n        <input type=\"color\" title=\"Background Color\" name=\"bgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n\n    <div class=\"container\">\n        <div class=\"mbr-row mbr-black\">\n            <div class=\"mbr-overlay\" mbr-if=\"overlay && bg.type !== 'color'\"></div>\n            <div class=\"relative\">\n                <h2 mbr-if=\"showTitle\" class=\"mbr-title align-center mbr-fonts-style\" mbr-theme-style=\"display-2\" data-app-selector=\".mbr-title\">CONSULTING<br></h2>\n                <h3 mbr-if=\"showSubtitle\" data-app-selector=\".mbr-section-subtitle\" class=\"mbr-section-subtitle align-center mbr-light mbr-fonts-style\" mbr-theme-style=\"display-4\">\n                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati impedit, eveniet, molestiae voluptates maiores repellendus vel tenetur at magni nihil est commodi illum distinctio tempore nulla quisquam. Voluptate perspiciatis, nisi!</p>\n                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis consectetur optio quam voluptate omnis inventore, repellendus architecto dolorum, quos impedit. Amet quod ut recusandae ipsum nostrum expedita quae nesciunt dolorem.</p>\n                </h3>\n                <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" mbr-buttons mbr-theme-style=\"display-4\" data-toolbar=\"-mbrBtnMove\"><a class=\"btn btn-white\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Text\">\n                    IT Security</a> <a class=\"btn btn-white\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Text\">\n                    Business Analysis</a></div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "rD7IBkewWE",
+          "_anchor": "headers4-c",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 5px)",
+            "padding-bottom": "(@paddingBottom * 5px)",
+            "background-color": "@BgColor",
+            ".mbr-row": {
+              "margin": "0"
+            },
+            ".container": {
+              "padding-left": "10px",
+              "padding-right": "10px"
+            },
+            ".card": {
+              "position": "relative",
+              "display": "flex",
+              "-ms-flex-direction": "column",
+              "-webkit-flex-direction": "column",
+              "flex-direction": "column",
+              "min-width": "0",
+              "word-wrap": "break-word",
+              "background-clip": "border-box",
+              "border-radius": "0",
+              "width": "100%",
+              "min-height": "1px",
+              "padding-right": "5px",
+              "padding-left": "5px"
+            },
+            ".card-wrapper": {
+              "background-color": "@cardBg"
+            },
+            ".card-box": {
+              "padding": "2.5rem"
+            },
+            "h4.card-title": {
+              "margin-bottom": "25px",
+              "margin-top": "25px"
+            },
+            ".card-icon": {
+              "margin-bottom": "20px"
+            },
+            ".amp-iconfont": {
+              "padding": "1rem",
+              "background-color": "@iconsBg",
+              "color": "@iconsColor",
+              "border-radius": "50%",
+              "width": "calc(~\"@{iconsSize}rem + 2rem\")",
+              "height": "calc(~\"@{iconsSize}rem + 2rem\")",
+              "font-size": "~\"@{iconsSize}rem\""
+            },
+            ".mbr-section-btn": {
+              "margin": "20px auto 0 auto"
+            },
+            ".card-title": {
+              "& when (@showUnderline)": {
+                "position": "relative",
+                "margin-bottom": "70px",
+                "&:after": {
+                  "position": "absolute",
+                  "left": "50%",
+                  "margin-left": "-1.5rem",
+                  "bottom": "-35px",
+                  "content": "\"\"",
+                  "width": "3rem",
+                  "height": "2px",
+                  "background-color": "@underlineColor",
+                  "transition": "width .3s"
+                }
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".first-row-card": {
+                "margin-bottom": "10px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".card:not(.last-child)": {
+                "margin-bottom": "10px"
+              }
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "text-align": "left"
+            }
+          },
+          "_name": "features5",
+          "_customHTML": "<section class=\"features5 mbr-section\" group=\"Features\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"20\" step=\"1\" value=\"1\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"20\" step=\"1\" value=\"1\">\n\n\n        <select title=\"Cards\" name=\"cardsAmount\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\" selected>3</option>\n            <option value=\"4\">4</option>\n        </select>\n\n        <input type=\"color\" title=\"Card BG Color\" name=\"cardBg\" value=\"#efefef\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Underline\" name=\"showUnderline\" condition=\"showTitle\" checked>\n        <input type=\"color\" title=\"Underline Color\" name=\"underlineColor\" value=\"#232323\" condition=\"showUnderline && showTitle\">\n\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        \n        <input type=\"checkbox\" title=\"Show Icons\" name=\"showIcons\" checked>\n        <input type=\"color\" title=\"Icons BG Color\" name=\"iconsBg\" value=\"#efefef\" condition=\"showIcons\">\n        <input type=\"color\" title=\"Icons Text Color\" name=\"iconsColor\" value=\"#000000\" condition=\"showIcons\">\n        <input type=\"range\" inline title=\"Icons Size\" name=\"iconsSize\" min=\"2\" max=\"5\" step=\"0.1\" value=\"2.7\" condition=\"showIcons\">\n\n\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\" checked>        \n        \n        <input type=\"color\" title=\"Background Color\" name=\"BgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center mbr-black\">\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3,'mbr-col-lg-3': cardsAmount == 4,'last-child': cardsAmount == 1, 'first-row-card': cardsAmount > 2}\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-lightbulb-o fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>\n                            IT Consulting</b></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">- Full project analyze:&nbsp;Web,Mobile,Blockchain,VR<br>- Variety of analytic reports for companies<br>- Reports about work processes and status<br>- Individual Team &nbsp;to solve your problems\n<br>- Creating a concept for project needs<br>- Monetizing questions reviewing and payment integration</p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-right-icon btn-white\" href=\"https://mobirise.com\">\n                                <span class=\"fa fa-angle-right mbr-iconfont mbr-iconfont-btn\"></span>\n                            Learn more\n                            </a></div>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3,'mbr-col-lg-3': cardsAmount == 4,'last-child': cardsAmount == 2, 'first-row-card': cardsAmount > 2}\" mbr-if=\"cardsAmount > 1\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-rocket fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>\n                            Automatizations</b></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">- Increasing speed of any proccess in company\n<br>- Ability to automatize accountant processes<br>- Quick business analize for requested &nbsp;process<br>- Providing documentation for automatizations<br>- Proffesional software integration and monitoring<br>- Cross software automatization&nbsp;<br>- Fast integration&nbsp;<br></p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-right-icon btn-white\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Text\">\n                                <span class=\"fa fa-angle-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                Learn more\n                            </a></div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3,'mbr-col-lg-3': cardsAmount == 4,'last-child': cardsAmount == 3}\" mbr-if=\"cardsAmount > 2\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-chain fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>Blockchain</b></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">- Creating block chain solutions <br>- API integration for crypto payments solutions\n<br>- Implementation of cryptocurrency exchange<br>- API integration for casinos and e-commerce<br>- Creating a business model based on blockchain&nbsp;<br>- Implementing add-ons for system\n<br>- Guaranteed support for business</p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-right-icon btn-white\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Text\"><span class=\"fa fa-angle-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                \n                                Learn more\n                            </a></div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3, 'mbr-col-lg-3': cardsAmount == 4, 'last-child': cardsAmount == 4}\" mbr-if=\"cardsAmount > 3\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-clock-o fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\">\n                            Results\n                        </h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                            Publishers and advertisers can decide how to present their content and what technology vendors to use, all while maintaining and improving key performance indicators.\n                        </p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\">\n                            <a class=\"btn btn-right-icon btn-white\" href=\"https://mobirise.com\">\n                                <span class=\"fa fa-angle-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                Learn more\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "rD688CVu9Z",
+          "_anchor": "features5-1",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 5px)",
+            "padding-bottom": "(@paddingBottom * 5px)",
+            "background-color": "@BgColor",
+            ".mbr-row": {
+              "margin": "0"
+            },
+            ".container": {
+              "padding-left": "10px",
+              "padding-right": "10px"
+            },
+            ".card": {
+              "position": "relative",
+              "display": "flex",
+              "-ms-flex-direction": "column",
+              "-webkit-flex-direction": "column",
+              "flex-direction": "column",
+              "min-width": "0",
+              "word-wrap": "break-word",
+              "background-clip": "border-box",
+              "border-radius": "0",
+              "width": "100%",
+              "min-height": "1px",
+              "padding-right": "5px",
+              "padding-left": "5px"
+            },
+            ".card-wrapper": {
+              "background-color": "@cardBg"
+            },
+            ".card-box": {
+              "padding": "2.5rem"
+            },
+            "h4.card-title": {
+              "margin-bottom": "25px",
+              "margin-top": "25px"
+            },
+            ".card-icon": {
+              "margin-bottom": "20px"
+            },
+            ".amp-iconfont": {
+              "padding": "1rem",
+              "background-color": "@iconsBg",
+              "color": "@iconsColor",
+              "border-radius": "50%",
+              "width": "calc(~\"@{iconsSize}rem + 2rem\")",
+              "height": "calc(~\"@{iconsSize}rem + 2rem\")",
+              "font-size": "~\"@{iconsSize}rem\""
+            },
+            ".mbr-section-btn": {
+              "margin": "20px auto 0 auto"
+            },
+            ".card-title": {
+              "& when (@showUnderline)": {
+                "position": "relative",
+                "margin-bottom": "70px",
+                "&:after": {
+                  "position": "absolute",
+                  "left": "50%",
+                  "margin-left": "-1.5rem",
+                  "bottom": "-35px",
+                  "content": "\"\"",
+                  "width": "3rem",
+                  "height": "2px",
+                  "background-color": "@underlineColor",
+                  "transition": "width .3s"
+                }
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".first-row-card": {
+                "margin-bottom": "10px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".card:not(.last-child)": {
+                "margin-bottom": "10px"
+              }
+            },
+            ".mbr-text, .mbr-section-btn": {
+              "text-align": "left"
+            }
+          },
+          "_name": "features5",
+          "_customHTML": "<section class=\"features5 mbr-section\" group=\"Features\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"20\" step=\"1\" value=\"1\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"20\" step=\"1\" value=\"1\">\n\n\n        <select title=\"Cards\" name=\"cardsAmount\">\n            <option value=\"1\">1</option>\n            <option value=\"2\" selected>2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\">4</option>\n        </select>\n\n        <input type=\"color\" title=\"Card BG Color\" name=\"cardBg\" value=\"#efefef\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Underline\" name=\"showUnderline\" condition=\"showTitle\" checked>\n        <input type=\"color\" title=\"Underline Color\" name=\"underlineColor\" value=\"#232323\" condition=\"showUnderline && showTitle\">\n\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        \n        <input type=\"checkbox\" title=\"Show Icons\" name=\"showIcons\" checked>\n        <input type=\"color\" title=\"Icons BG Color\" name=\"iconsBg\" value=\"#efefef\" condition=\"showIcons\">\n        <input type=\"color\" title=\"Icons Text Color\" name=\"iconsColor\" value=\"#000000\" condition=\"showIcons\">\n        <input type=\"range\" inline title=\"Icons Size\" name=\"iconsSize\" min=\"2\" max=\"5\" step=\"0.1\" value=\"2.7\" condition=\"showIcons\">\n\n\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\" checked>        \n        \n        <input type=\"color\" title=\"Background Color\" name=\"BgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center mbr-black\">\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3,'mbr-col-lg-3': cardsAmount == 4,'last-child': cardsAmount == 1, 'first-row-card': cardsAmount > 2}\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-user-secret fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>Security&nbsp;</b></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">- Creating documentation for organizing \n<br>- Helping with all integration in all devices\n<br>- Network hardware analyze with report\n<br>- Building a security plan \n<br>- Creating documentation for organizing security shield\n<br>- Helping with all software integration in all devices\n<br>- Apartment, office and other expertise \n<br>- Computers and Mobile device expertise \n<br>- Auto expertise&nbsp;</p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-right-icon btn-white\" href=\"https://mobirise.com\">\n                                <span class=\"fa fa-angle-right mbr-iconfont mbr-iconfont-btn\"></span>\n                            Learn more\n                            </a></div>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3,'mbr-col-lg-3': cardsAmount == 4,'last-child': cardsAmount == 2, 'first-row-card': cardsAmount > 2}\" mbr-if=\"cardsAmount > 1\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-briefcase fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>Business Analysis</b></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">- Help with opening new companies and organizing business\n<br>- Payment solutions for your business needs<br>- Full business analyze and individual reports<br>- Conclusion about weak points incompany with recomendations<br>- Pack of reports for each individual sector<br>- Providing a plan for busines processes modificatins&nbsp;<br>- Monitoring &nbsp;and supporting for implementat processes <br><br><br></p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-right-icon btn-white\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Text\">\n                                <span class=\"fa fa-angle-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                Learn more\n                            </a></div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3,'mbr-col-lg-3': cardsAmount == 4,'last-child': cardsAmount == 3}\" mbr-if=\"cardsAmount > 2\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-map-marker fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\">\n                            Flexibility\n                        </h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                            Publishers and advertisers can decide how to present their content and what technology vendors to use, all while maintaining and improving key performance indicators.\n                        </p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-right-icon btn-white\" href=\"https://mobirise.com\"><span class=\"fa fa-angle-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                \n                                Learn more\n                            </a></div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3, 'mbr-col-lg-3': cardsAmount == 4, 'last-child': cardsAmount == 4}\" mbr-if=\"cardsAmount > 3\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-clock-o fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\">\n                            Results\n                        </h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">\n                            Publishers and advertisers can decide how to present their content and what technology vendors to use, all while maintaining and improving key performance indicators.\n                        </p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\">\n                            <a class=\"btn btn-right-icon btn-white\" href=\"https://mobirise.com\">\n                                <span class=\"fa fa-angle-right mbr-iconfont mbr-iconfont-btn\"></span>\n                                Learn more\n                            </a>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "rD6VneICF6",
+          "_anchor": "features5-6",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        },
+        {
+          "alias": false,
+          "_styles": {
+            "padding-top": "(@paddingTop * 5px)",
+            "padding-bottom": "(@paddingBottom * 5px)",
+            "background-color": "@BgColor",
+            ".mbr-row": {
+              "margin": "0"
+            },
+            ".container": {
+              "padding-left": "10px",
+              "padding-right": "10px"
+            },
+            ".card": {
+              "position": "relative",
+              "display": "flex",
+              "-ms-flex-direction": "column",
+              "-webkit-flex-direction": "column",
+              "flex-direction": "column",
+              "min-width": "0",
+              "word-wrap": "break-word",
+              "background-clip": "border-box",
+              "border-radius": "0",
+              "width": "100%",
+              "min-height": "1px",
+              "padding-right": "5px",
+              "padding-left": "5px"
+            },
+            ".card-wrapper": {
+              "background-color": "@cardBg"
+            },
+            ".card-box": {
+              "padding": "2.5rem"
+            },
+            "h4.card-title": {
+              "margin-bottom": "25px",
+              "margin-top": "25px"
+            },
+            ".card-icon": {
+              "margin-bottom": "20px"
+            },
+            ".amp-iconfont": {
+              "padding": "1rem",
+              "background-color": "@iconsBg",
+              "color": "@iconsColor",
+              "border-radius": "50%",
+              "width": "calc(~\"@{iconsSize}rem + 2rem\")",
+              "height": "calc(~\"@{iconsSize}rem + 2rem\")",
+              "font-size": "~\"@{iconsSize}rem\""
+            },
+            ".mbr-section-btn": {
+              "margin": "20px auto 0 auto"
+            },
+            ".card-title": {
+              "& when (@showUnderline)": {
+                "position": "relative",
+                "margin-bottom": "70px",
+                "&:after": {
+                  "position": "absolute",
+                  "left": "50%",
+                  "margin-left": "-1.5rem",
+                  "bottom": "-35px",
+                  "content": "\"\"",
+                  "width": "3rem",
+                  "height": "2px",
+                  "background-color": "@underlineColor",
+                  "transition": "width .3s"
+                }
+              }
+            },
+            "@media (max-width: 991px)": {
+              ".first-row-card": {
+                "margin-bottom": "10px"
+              }
+            },
+            "@media (max-width: 767px)": {
+              ".card:not(.last-child)": {
+                "margin-bottom": "10px"
+              }
+            }
+          },
+          "_name": "features6",
+          "_customHTML": "<section class=\"features5 mbr-section\" group=\"Features\" plugins=\"amp-main\">\n\n    <mbr-parameters>\n    <!-- Block parameters controls (Blue \"Gear\" panel) -->\n        <input type=\"range\" inline title=\"Top\" name=\"paddingTop\" min=\"0\" max=\"20\" step=\"1\" value=\"1\">\n        <input type=\"range\" inline title=\"Bottom\" name=\"paddingBottom\" min=\"0\" max=\"20\" step=\"1\" value=\"1\">\n\n\n        <select title=\"Cards\" name=\"cardsAmount\">\n            <option value=\"1\">1</option>\n            <option value=\"2\">2</option>\n            <option value=\"3\">3</option>\n            <option value=\"4\" selected>4</option>\n        </select>\n\n        <input type=\"color\" title=\"Card BG Color\" name=\"cardBg\" value=\"#efefef\">\n\n        <input type=\"checkbox\" title=\"Show Title\" name=\"showTitle\" checked>\n        <input type=\"checkbox\" title=\"Show Underline\" name=\"showUnderline\" condition=\"showTitle\">\n        <input type=\"color\" title=\"Underline Color\" name=\"underlineColor\" value=\"#232323\" condition=\"showUnderline && showTitle\">\n\n        <input type=\"checkbox\" title=\"Show Text\" name=\"showText\" checked>\n        \n        <input type=\"checkbox\" title=\"Show Icons\" name=\"showIcons\" checked>\n        <input type=\"color\" title=\"Icons BG Color\" name=\"iconsBg\" value=\"#efefef\" condition=\"showIcons\">\n        <input type=\"color\" title=\"Icons Text Color\" name=\"iconsColor\" value=\"#000000\" condition=\"showIcons\">\n        <input type=\"range\" inline title=\"Icons Size\" name=\"iconsSize\" min=\"2\" max=\"5\" step=\"0.1\" value=\"3\" condition=\"showIcons\">\n\n\n        <input type=\"checkbox\" title=\"Show Buttons\" name=\"showButtons\" checked>        \n        \n        <input type=\"color\" title=\"Background Color\" name=\"BgColor\" value=\"#ffffff\">\n    <!-- End block parameters -->\n    </mbr-parameters>\n    \n    <div class=\"container\">\n        <div class=\"mbr-row mbr-justify-content-center mbr-black\">\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3,'mbr-col-lg-3': cardsAmount == 4,'last-child': cardsAmount == 1, 'first-row-card': cardsAmount > 2}\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-child fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>\n                            Jack</b></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Well known all over the Europe as a professional IT consultant. Jack and his team of experts are focused on it researches and traffic analysis and can give a good expertise on your marketing team and marketing channels.Can provide investments and offer productsto investors.<br><br><br></p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-white\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Text\">\n                            Contacts</a></div>\n                    </div>\n                </div>\n            </div>\n            \n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3,'mbr-col-lg-3': cardsAmount == 4,'last-child': cardsAmount == 2, 'first-row-card': cardsAmount > 2}\" mbr-if=\"cardsAmount > 1\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-child fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>\n                            Dmitrij</b></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Financial analytic, accountant, trader and a business consultant, can give recommendations and help you solve problems in any country on the planet and be sure that you will never lose a cent Specialistt in block chain regulations and can organize any business model.<br><br><br></p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-white\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Text\">\n                                Contacts</a></div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3,'mbr-col-lg-3': cardsAmount == 4,'last-child': cardsAmount == 3}\" mbr-if=\"cardsAmount > 2\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-child fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>Michael</b></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">Professional \"Senior\" Developer from 1999. Can provide detailed report about the project status and the project quality, have a partner Igor - that can help with mobile expertise and provide a report for Android apps and iOS as well<br><br><br><br></p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-white\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Text\">\n                                Contacts</a></div>\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"card mbr-col-sm-12 mbr-col-md-6\" mbr-class=\"{'mbr-col-lg-4': cardsAmount == 3, 'mbr-col-lg-3': cardsAmount == 4, 'last-child': cardsAmount == 4}\" mbr-if=\"cardsAmount > 3\">\n                <div class=\"card-wrapper\">\n                    <div class=\"card-box\">\n                        <div class=\"card-icon align-center\" mbr-if=\"showIcons\">\n                            <span mbr-icon class=\"amp-iconfont fa-child fa\"></span>\n                        </div>\n                        <h3 class=\"card-title mbr-fonts-style align-center mbr-light\" mbr-theme-style=\"display-5\" mbr-if=\"showTitle\" data-app-selector=\".card-title\"><b>\n                            Viktor</b></h3>\n                        <p class=\"mbr-text mbr-fonts-style align-center\" mbr-theme-style=\"display-4\" mbr-if=\"showText\" data-app-selector=\".mbr-text, .mbr-section-btn\">More than 12 years in IT industry, representing a big team of experts that are focused on Automatizations and security, as well as regular it &amp; business consalting with blockchain integrations. Can provide management consulting and special project management for - Web,Mobile,Blockchain,VR - projects.<br>\n                        </p>\n                        <div class=\"mbr-section-btn align-center\" mbr-if=\"showButtons\" data-toolbar=\"-mbrBtnMove\" mbr-buttons mbr-theme-style=\"display-4\"><a class=\"btn btn-white\" href=\"https://mobirise.com\" data-app-placeholder=\"Type Text\">\n                                Contacts</a></div>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</section>",
+          "_cid": "rD6XSE2aRn",
+          "_anchor": "features6-7",
+          "_protectedParams": [],
+          "_global": false,
+          "_once": false,
+          "_params": {}
+        }
+      ]
+    }
+  }
+}
